@@ -14,3 +14,4 @@ public class News {
         this.content = content;
         this.author = author;
     }
+}
