@@ -47,7 +47,7 @@ public class Sql2oEmployeeDao implements EmployeeDao{
     }
 
     public void update(int id, String name, String role, int departmentId) {
-        String sql = "UPDATE employees SET (name, role, departmentid) = (:name, :role, :departmentId)";
+        String sql = "UPDATE employee SET (name, role, departmentid) = (:name, :role, :departmentId)";
         try (Connection con = sql2o.open()) {
             con.createQuery(sql)
                     .addParameter("name", name)
