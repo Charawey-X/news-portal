@@ -2,6 +2,7 @@ package dao;
 
 import models.Department;
 import models.News;
+import org.junit.*;
 import org.junit.jupiter.api.Test;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
@@ -56,7 +57,7 @@ public class Sql2oNewsDaoTest {
     @Test
     public void update() {
         News news = setupNews();
-        News updatedNews = new News("Am the updated headline", "I am a very interesting content", news.getId());
+        News updatedNews = new News("Am the updated headline", "I am a very interesting content");
         updatedNews.setId(news.getId());
         newsDao.update(news.getId(), updatedNews);
         assertEquals(updatedNews.getContent(), "Am the updated headline");

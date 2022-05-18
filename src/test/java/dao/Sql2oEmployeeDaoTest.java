@@ -2,6 +2,7 @@ package dao;
 
 import models.Department;
 import models.Employee;
+import org.junit.*;
 import org.junit.jupiter.api.Test;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
