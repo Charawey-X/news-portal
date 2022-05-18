@@ -8,9 +8,9 @@ This is a REST API news Portal Application
 | route                              | purpose                                             |
 |------------------------------------|-----------------------------------------------------|
 | get("/")                           | returns a list of api routes                        |
-| get("/department")                 | returns a list of all departments                   |
-| get("/department/:id")             | returns a department with specific id               |
-| post("/department/new")            | creates a new department                            |
+| get("/departments")                 | returns a list of all departments                   |
+| get("/departments/:id")             | returns a department with specific id               |
+| post("/departments/new")            | creates a new department                            |
 | get("/users")                      | returns a list of users                             |
 | get("/users/:id")                  | returns a user with the specific id                 |
 | post("/departments/:id/users/new") | creates a user and associates it with department id |
