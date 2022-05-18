@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS departments(
     name VARCHAR,
     description VARCHAR,
     numberOfEmployees INTEGER
-)
+);
 
 CREATE TABLE IF NOT EXISTS news(
     id SERIAL PRIMARY KEY,
@@ -17,12 +17,14 @@ CREATE TABLE IF NOT EXISTS news(
     author VARCHAR,
     departmentId INTEGER,
     type VARCHAR
-)
+);
 
-CREATE TABLE IF NOT EXISTS users(
+CREATE TABLE IF NOT EXISTS employees(
     id SERIAL PRIMARY KEY,
     name VARCHAR,
     role VARCHAR,
     departmentId INTEGER
-)
+);
+
+
 CREATE DATABASE news_portal_test WITH TEMPLATE news_portal OWNER x;

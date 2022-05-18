@@ -60,6 +60,24 @@ public class App {
             return gson.toJson(departmentToFind);
         });
 
+        //update a department
+        post("/department/:id/update", "application/json", (request, response) -> {
+            Department department = gson.fromJson(request.body(), Department.class);
+            department.setId(Integer.parseInt(request.params("id")));
+            departmentDao.update(Integer.parseInt(request.params("id")), department);
+            response.status(201);
+            response.type("application/json");
+            return gson.toJson(department);
+        });
+
+        //delete a department
+        get("/delete/:id/department", "application/json", (request, response) -> {
+            departmentDao.deleteById(Integer.parseInt(request.params("id")));
+            response.status(201);
+            response.type("application/json");
+            return gson.toJson(departmentDao.getAll());
+        });
+
         //add an employee
         post("/departments/:id/users/new", "application/json", (req, res) -> {
             Employee employee = gson.fromJson(req.body(), Employee.class);
@@ -93,6 +111,24 @@ public class App {
             jsonMap.put("employee", employeeToFind);
             jsonMap.put("department", department);
             return gson.toJson(jsonMap);
+        });
+
+        //update an employee
+        post("/user/:id/update", "application/json", (request, response) -> {
+            Employee employee = gson.fromJson(request.body(), Employee.class);
+            employee.setId(Integer.parseInt(request.params("id")));
+            employeeDao.update(Integer.parseInt(request.params("id")), employee);
+            response.status(201);
+            response.type("application/json");
+            return gson.toJson(employee);
+        });
+
+        //remove an employee
+        get("/delete/:id/user", "application/json", (request, response) -> {
+            employeeDao.deleteById(Integer.parseInt(request.params("id")));
+            response.status(201);
+            response.type("application/json");
+            return gson.toJson(employeeDao.getAll());
         });
 
         //add news
@@ -139,6 +175,22 @@ public class App {
             } else {
                 return gson.toJson(news);
             }
+        });
+
+        //update news item
+        post("/news/:id/update", "application/json", (request, response) -> {
+            News news = gson.fromJson(request.body(), News.class);
+            news.setId(Integer.parseInt(request.params("id")));
+            newsDao.update(Integer.parseInt(request.params("id")), news);
+            response.status(201);
+            response.type("application/json");
+            return gson.toJson(news);
+        });
+
+        //delete news item
+        get("news/:id/delete", "application/json", (request, response) -> {
+            newsDao.deleteById(Integer.parseInt(request.params("id")));
+            return gson.toJson(newsDao.getAll());
         });
 
         //to see employees of a given department and link to their news(that department news)

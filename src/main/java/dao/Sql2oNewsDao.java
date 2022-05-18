@@ -52,13 +52,11 @@ public class Sql2oNewsDao implements NewsDao {
     }
 
 
-    public void update(int id, String content, String author) {
+    public void update(int id, News news) {
         String sql = "UPDATE news SET (content, author) = (:content, :author) WHERE id = :id; ";
         try (Connection con = sql2o.open()) {
             con.createQuery(sql)
-                    .addParameter("content", content)
-                    .addParameter("author", author)
-                    .addParameter("id", id)
+                    .bind(news)
                     .executeUpdate();
         }
     }
