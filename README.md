@@ -2,22 +2,17 @@
 
 
 ##### Project Description
-This is a REST API news Portal Application
+This is a REST API news Portal Application using Spring Data JPA & Hibernate
 
 
 | route                              | purpose                                             |
 |------------------------------------|-----------------------------------------------------|
-| get("/")                           | returns a list of api routes                        |
-| get("/departments")                 | returns a list of all departments                   |
-| get("/departments/:id")             | returns a department with specific id               |
-| post("/departments/new")            | creates a new department                            |
-| get("/users")                      | returns a list of users                             |
-| get("/users/:id")                  | returns a user with the specific id                 |
-| post("/departments/:id/users/new") | creates a user and associates it with department id |
-| get("/news")                       | returns a list of general news created              |
-| post("/news/new")                  | creates news item                                   |
-| get("/department/news")            | returns a list of department news                   |
-| post("/department/:id/news/new")   | creates news for a specific department              |
+| "/api/v1/departments"              | returns a list of all departments                   |
+| "/api/v1/employees"                | returns a list of all employees                     |
+| "/api/v1/news"                     | returns a list of all news articles                 |
+
+* Manipulate with `post` , `put` , `get` & `delete` to add, edit/update, view & delete respectively
+* Add {id} to path for specific item
 ---
 
 ## Authors
@@ -40,10 +35,12 @@ This is a REST API news Portal Application
 # Technologies Used
 
 - java
-- gradle
+- maven
 - postgres
 - postman
-- spark
+- spring
+- jpa
+- hibernate
 
 
 
